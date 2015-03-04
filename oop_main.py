@@ -8,6 +8,8 @@ Press 3 to convert centimeters to inches
 Press 4 to quit
 """
 
+import unittest
+
 #Calculations class that calculates the numbers inputed by the user
 class Calculations:
     #conversion from kilometers to miles
@@ -35,31 +37,37 @@ class getInput:
 
         self = Calculations()
         while True:
-            userinput = input("Press 1 for centimeters to inches, Press 2 for meters to yards,"
+            userInput = input("Press 1 for centimeters to inches, Press 2 for meters to yards,"
                               "\n Press 3 for kilometers to miles, or Press 4 to quit:")
-            if userinput == '4':
+
+
+            if userInput == '4':
                 #self.goodbye
                 print("thank you for using the conversion program, have a nice day.")
                 break
 
-            elif userinput == '1':
+            elif userInput == '1':
                 centimeters = int(input("Enter the number of centimeters that you would like to convert to inches:"))
                 i = self.conversionCenti(centimeters)
                 print(i, "inches")
 
-            elif userinput == '2':
+            elif userInput == '2':
                 meters = int(input("Enter the number of meters that you would like to convert to yards:"))
                 y = self.conversionMeters(meters)
                 print(y, "yards")
 
-            elif userinput == '3':
+            elif userInput == '3':
                 kilometers = int(input("Enter the number of kilometers that you would like to convert to miles:"))
                 mi = self.conversionKilo(kilometers)
                 print(mi, "miles")
 
             else:
-                    print("User input error, please restart \nthe input must be 1, 2, 3, or 4.")
+                  print("Input error, please restart \nthe input must be 1, 2, 3, or 4.")
 
 
 
+class testCasesAssertTrue(unittest.TestCase):
+
+    def test_userInput_assert_true(self):
+        self.assertTrue(getInput.self.userInput(1))
 
